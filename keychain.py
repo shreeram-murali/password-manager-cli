@@ -12,6 +12,3 @@ if __name__ == '__main__':
         print("Keep the following key in a secured location.")
         print(key)
         print("Use python3 keychain.py --generate True to generate a key")
-    
-    if args.access == True:
-        """Code to get passwords"""
