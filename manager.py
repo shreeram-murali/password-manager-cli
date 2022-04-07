@@ -1,12 +1,13 @@
+from email import message
+import string
 from cryptography.fernet import Fernet
 
-class Passwords:
-    def __init__(self, username, token) -> None:
-        self._username = username
-        self._token = token
-    
-    def encrypt(self, message: bytes, key: bytes) -> bytes:
-        return Fernet(key).encrypt(message)
+def encrypt(message: string, key: string) -> bytes:
+    message = bytes(message, 'utf8')
+    key = bytes(key, 'utf8')
+    return Fernet(key).encrypt(message)
 
-    def decrypt(self, token: bytes, key: bytes) -> bytes:
-        return Fernet(key).decrypt(token)
+def decrypt(token: string, key: string) -> bytes:
+    token = bytes(token, 'utf8')
+    key = bytes(key, 'utf8')
+    return Fernet(key).decrypt(token)
